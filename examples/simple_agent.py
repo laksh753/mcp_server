@@ -42,10 +42,10 @@ class SimpleAgent:
         """Execute a task and update its status."""
         print(f"Executing task {task_id} of type {task_type}")
         
-        # Simulate task execution
+        
         time.sleep(2)
         
-        # Update task status
+        
         status_data = {"status": "completed"}
         response = requests.put(
             f"{self.server_url}/tasks/{task_id}/status",
@@ -68,12 +68,12 @@ class SimpleAgent:
         
         try:
             while True:
-                # Check for tasks
+                
                 agent_status = self.check_tasks()
                 if agent_status:
                     print(f"Agent status: {agent_status}")
                 
-                # Sleep for a bit
+                
                 time.sleep(5)
                 
         except KeyboardInterrupt:
