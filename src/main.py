@@ -6,14 +6,14 @@ import json
 import os
 from datetime import datetime
 
-# Create FastAPI app
+
 app = FastAPI(
     title="MCP Server",
     description="Management Control Protocol Server with dummy API endpoints",
     version="1.0.0"
 )
 
-# Add CORS middleware
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -22,7 +22,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Dummy data storage
+
 agents = {}
 tasks = {}
 
@@ -33,7 +33,7 @@ def get_agent_status(agent_id: str) -> Dict[str, Any]:
         raise HTTPException(status_code=404, detail="Agent not found")
     return agents[agent_id]
 
-# Routes
+
 @app.get("/")
 async def root():
     """Root endpoint returning server status."""
